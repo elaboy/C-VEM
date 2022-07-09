@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from selenium.webdriver.chrome.options import Options
 
 
 def SuperMax(): 
@@ -13,7 +12,7 @@ def SuperMax():
     driver = webdriver.Chrome(
             executable_path="chromedriver", chrome_options=chrome_options)
    #This variable takes the input of the item you want to search
-    producto = input("Entre el nombre del producto: ")
+    product = input("Entre el nombre del producto: ")
     #Driver that makes all the magic happen (Chrome v.103)
                                                                     #driver = webdriver.Chrome(executable_path="chromedriver")
     #Link of the website
@@ -46,10 +45,10 @@ def SuperMax():
     with open(product + ".txt", "w") as text_file:
         text_file.write(resultados)
     print("*********************************************")
-    print("You can close the program, the file is saved.")
+    input("You can close the program, the file is saved. Please hit enter")
 
-    #close driver after 180 seconds aka closes chrome
-    time.sleep(180)
+    #close driver after 3 seconds aka closes chrome
+    time.sleep(3)
     driver.close()
 
 if __name__ == "__main__": 
