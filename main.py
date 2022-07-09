@@ -5,7 +5,6 @@ from selenium.webdriver.chrome.options import Options
 
 
 def SuperMax(): 
-<<<<<<< HEAD
     #Makes the chrome run headless
     #Driver that makes all the magic happen (Chrome v.103)
     chrome_options = webdriver.ChromeOptions()
@@ -15,10 +14,6 @@ def SuperMax():
             executable_path="chromedriver", chrome_options=chrome_options)
    #This variable takes the input of the item you want to search
     producto = input("Entre el nombre del producto: ")
-=======
-    #This variable takes the input of the item you want to search
-    product = input("Entre el nombre del producto: ")
->>>>>>> c89181c82886bb8cd0f2bf6fb78d72781b628fac
     #Driver that makes all the magic happen (Chrome v.103)
                                                                     #driver = webdriver.Chrome(executable_path="chromedriver")
     #Link of the website
