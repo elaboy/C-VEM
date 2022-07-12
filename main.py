@@ -66,7 +66,7 @@ def SuperMax():
 
     #Path for the results folder
     main_path = os.path.dirname(__file__)
-    path = os.path.join(main_path, "RESULTS\\" + product + ".txt")
+    path = os.path.join(main_path, "results\\" + product + ".txt")
     #Writes text file with the data and names it the same as the product name you used as input
     with open(path, "w") as text_file:
         text_file.write(results)
