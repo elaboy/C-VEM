@@ -1,6 +1,21 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import os 
+
+#Function that cleans the output and adds @ for changing later
+def spacer(result):
+    lines = 0 
+    fixed_spaces = ""
+
+    for i in result: 
+        if i == "\n":
+            lines += 1
+            if lines == 3: 
+                lines = 0 
+                i = " @ "
+        fixed_spaces += i
+    return fixed_spaces
 
 
 def SuperMax(): 
@@ -40,10 +55,23 @@ def SuperMax():
             break 
     #Checks if prodcut name is in element and creates a string contaning the items names, weights, and prices
     if product.casefold or product.capitalize in driver.find_element(By.CSS_SELECTOR, product):
-        resultados = driver.find_element(By.ID, "products").text
+        results = driver.find_element(By.ID, "products").text
+
+    #Makes the lines for the division of items 
+    lines = "\n\n-----------------------------------------------------\n\n"
+
+    #Uses the spacer function to replace \n to @ and then replace it for the lines
+    results = spacer(results)
+    results = results.replace(" @ ", lines)
+
+    #Path for the results folder
+    main_path = os.path.dirname(__file__)
+    path = os.path.join(main_path, "RESULTS\\" + product + ".txt")
     #Writes text file with the data and names it the same as the product name you used as input
-    with open(product + ".txt", "w") as text_file:
-        text_file.write(resultados)
+    with open(path, "w") as text_file:
+        text_file.write(results)
+    print("*********************************************")
+    print("*********************************************")
     print("*********************************************")
     input("You can close the program, the file is saved. Please hit enter")
 
